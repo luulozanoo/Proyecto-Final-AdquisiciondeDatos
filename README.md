@@ -1,19 +1,20 @@
 # 🕸️ Data Engineering & Web Scraping: Construyendo Datasets desde Cero
 
-En el mundo real, los datos que necesitas para un proyecto rara vez están empaquetados en un archivo limpio y listo para usar. La mayoría de las veces, tienes que salir a buscarlos.
+En el mundo del análisis de datos, la información que necesitas rara vez viene empaquetada en un archivo limpio y listo para usar. La mayoría de las veces, tienes que salir a buscarla.
 
-Este repositorio es una demostración de **autonomía en la obtención y gestión de datos**. Aquí recopilo las herramientas, *scripts* y *crawlers* que he desarrollado desde cero para extraer información directamente de internet, limpiarla, y construir mis propios datasets cuando estos no existen.
+Este repositorio es una demostración de **autonomía en la obtención de datos**. Aquí recopilo las herramientas, *scripts* y *crawlers* que he desarrollado para extraer información directamente de internet, limpiarla, y construir mis propios datasets estructurados cuando estos no existen de antemano.
 
 ## 🚀 El valor de este código
 
-En lugar de depender de datos preexistentes, he construido automatizaciones capaces de:
+En lugar de depender de datos preexistentes o APIs limitadas, he construido automatizaciones capaces de:
 
-* **Web Scraping y Crawling Avanzado:** Uso de `Scrapy` para la navegación dinámica por sitios web complejos. Por ejemplo, he desarrollado *spiders* que recorren Wikipedia de forma autónoma extrayendo resultados históricos de Fórmula 1 (2012-2024), identificando y parseando tablas HTML específicas y transformándolas en DataFrames limpios de Pandas.
-* **Extracción de Catálogos:** *Crawlers* programados para rastrear páginas web enteras siguiendo enlaces de paginación y categorías, extrayendo metadatos específicos (como títulos o identificadores únicos) y exportando la información a formatos estructurados como JSON.
-* **Ingesta y Orquestación Multimodelo:** Una vez obtenidos los datos mediante *scraping*, estos scripts se encargan de su procesamiento e inserción masiva. He programado *pipelines* que distribuyen los datos extraídos hacia arquitecturas multimodelo: MySQL (datos relacionales), MongoDB (documentos y textos) y Neo4j (grafos y relaciones).
+* **Web Scraping y Crawling Avanzado:** Uso de la librería `Scrapy` para la navegación dinámica por sitios web. Por ejemplo, he desarrollado *spiders* que recorren Wikipedia de forma autónoma extrayendo resultados históricos de Fórmula 1 (2012-2024), identificando enlaces anidados de "Reportes de Carrera".
+* **Parseo y Limpieza en Memoria:** Extracción de tablas HTML crudas y su transformación directa en DataFrames de Pandas, limpiando filas innecesarias en el proceso para asegurar la calidad del dato.
+* **Generación de Datasets Estructurados:** Diseño de sistemas de guardado automático que organizan la información extraída de forma lógica. Creación de estructuras de carpetas dinámicas (`/data/{año}/`) para exportar la información limpia a archivos **CSV** listos para ser consumidos por herramientas de visualización o modelos de Machine Learning, así como volcados de catálogos completos en formato **JSON**.
 
 ## 🛠️ Stack Tecnológico
 
-* **Extracción y Manipulación:** Python, Scrapy, Pandas.
-* **Orquestación de Bases de Datos:** `pymysql`, `pymongo`, `neo4j`.
-* **Optimización:** Procesamiento por lotes (*batch processing*) y lectura optimizada para manejar grandes volúmenes de datos recién scrapeados sin saturar la memoria RAM.
+* **Lenguaje:** Python
+* **Extracción y Navegación Web:** Scrapy
+* **Procesamiento de Datos:** Pandas, io
+* **Gestión de Archivos:** os (Exportación estructurada a CSV y JSON)
